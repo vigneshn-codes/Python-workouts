@@ -1,3 +1,4 @@
+from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 
@@ -6,6 +7,7 @@ from playwright.sync_api import sync_playwright
 # =============================
 
 BASE_URL = "https://example.com"
+SCRIPT_DIR = Path(__file__).parent
 
 
 # =============================
@@ -27,13 +29,19 @@ def navigate_test(page):
 
 def click_and_input_test(page):
     print("Typing into input field...")
+    # Use a page that actually has a search box
+    page.goto("https://duckduckgo.com/")
+    page.wait_for_selector("input[name='q']")
     page.fill("input[name='q']", "Playwright automation")
     page.press("input[name='q']", "Enter")
 
 
 def button_click_test(page):
     print("Clicking button...")
-    page.click("text=More information")
+    # Ensure we are on the correct page and the element exists
+    page.goto(BASE_URL)
+    page.wait_for_selector("text=Learn more")
+    page.click("text=Learn more")
 
 
 def wait_test(page):
@@ -56,7 +64,8 @@ def checkbox_test(page):
 def file_upload_test(page):
     print("Uploading file...")
     page.goto("https://the-internet.herokuapp.com/upload")
-    page.set_input_files("#file-upload", "sample.txt")
+    file_path = SCRIPT_DIR / "sample.txt"
+    page.set_input_files("#file-upload", str(file_path))
     page.click("#file-submit")
 
 

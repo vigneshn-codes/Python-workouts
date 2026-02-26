@@ -31,10 +31,10 @@ def wait_for_element(image, timeout=10, confidence=0.8):
 def mouse_operations():
     print("Running mouse operations...")
     pyautogui.moveTo(400, 300, duration=1)
-    pyautogui.click()
-    pyautogui.doubleClick()
-    pyautogui.rightClick()
-    pyautogui.dragTo(700, 300, duration=1)
+    # pyautogui.click()
+    # pyautogui.doubleClick()
+    # pyautogui.rightClick()
+    # pyautogui.dragTo(700, 300, duration=1)
     print("Mouse operations done")
 
 
@@ -43,9 +43,9 @@ def mouse_operations():
 def keyboard_operations():
     print("Running keyboard operations...")
     pyautogui.write("Hello Automation!", interval=0.05)
-    pyautogui.press('enter')
-    pyautogui.hotkey('ctrl', 's')
-    pyautogui.press('esc')
+    # pyautogui.press('enter')
+    # pyautogui.hotkey('ctrl', 's')
+    # pyautogui.press('esc')
     print("Keyboard operations done")
 
 
