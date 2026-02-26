@@ -1,72 +1,35 @@
-# Gen AI (Python Basics)
+## Gen AI Python Workouts
 
-Small collection of Python practice scripts (data types, operators, functions, files, packages) with a minimal `unittest` setup.
+Small collection of Python practice scripts and simple automation demos.
 
-## Structure
+### Folder overview
 
-- **Day_3_python_fundamentals/** – Python basics workouts and their tests  
-  - Lesson scripts: `1_data_types.py`, `2_operators.py`, `3_control_statements.py`, `4_functions.py`, `5_error_handling.py`, `6_file_handling.py`, `7_file_handling_directory.py`, `8_init_package.py`, `simple-calculator.py`  
-  - Helper: `example.txt` (used by file-handling scripts)  
-  - Tests: `tests/` (e.g. `test_data_types.py`, `test_operators.py`, `test_functions_module.py`, `test_package_module.py`)
-- **test_init8/** – Package example used by `8_init_package.py` and package tests
+- **Day_3_python_fundamentals/** – core Python basics (data types, operators, control flow, functions, files, packages) with unit tests.  
+  - See the detailed guide in [`Day_3_python_fundamentals/README.md`](Day_3_python_fundamentals/README.md).
 
-## Day_3: Run a script
+- **Day_4_RPA_python_automation/** – RPA-style automation exercises:
+  - `pyautogui/` – desktop and GUI automation demos.
+  - `playwright/` – browser automation demos.
+  - See the detailed guide in [`Day_4_RPA_python_automation/README.md`](Day_4_RPA_python_automation/README.md).
 
-From the project root:
+### Quick start from project root
+
+- **Run a Day 3 fundamentals script**:
 
 ```bash
 python3 Day_3_python_fundamentals/1_data_types.py
 ```
 
-Or from inside the folder:
+- **Run Day 4 PyAutoGUI demo**:
 
 ```bash
-cd Day_3_python_fundamentals
-python3 1_data_types.py
+python3 Day_4_RPA_python_automation/pyautogui/demo-automation.py
 ```
 
-## Day_3: Run unit tests
-
-From the project root:
+- **Run Day 4 Playwright demo**:
 
 ```bash
-python3 -m unittest discover -s Day_3_python_fundamentals/tests -p "test_*.py"
+python3 Day_4_RPA_python_automation/playwright/demo-playwright.py
 ```
 
-Or run a single test module:
-
-```bash
-python3 -m unittest Day_3_python_fundamentals.tests.test_data_types -v
-```
-
-## Day_3: Coverage
-
-Install coverage (optional):
-
-```bash
-uv pip install coverage
-# or: pip install coverage
-```
-
-Run tests with coverage and report in the terminal:
-
-```bash
-coverage run -m unittest discover -s Day_3_python_fundamentals/tests -p "test_*.py"
-coverage report
-```
-
-Generate an HTML report and open it:
-
-```bash
-coverage run -m unittest discover -s Day_3_python_fundamentals/tests -p "test_*.py"
-coverage html
-open htmlcov/index.html
-```
-
-To limit the report to Day_3 source files only:
-
-```bash
-coverage run -m unittest discover -s Day_3_python_fundamentals/tests -p "test_*.py"
-coverage report --include="Day_3_python_fundamentals/*.py"
-coverage html --include="Day_3_python_fundamentals/*.py"
-```
+For more details (tests, coverage, individual flows), open the README inside each day’s folder.
